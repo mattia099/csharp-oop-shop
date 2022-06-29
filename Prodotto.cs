@@ -12,10 +12,10 @@ namespace csharp_oop_shop
         private string nome;
         private string descrizione;
         private float prezzo;
-        private string iva;
+        private int iva;
 
       
-        public Prodotto( string nome, string descrizione, float prezzo, string iva)
+        public Prodotto( string nome, string descrizione, float prezzo, int iva )
         {
             this.codice = this.RandomCode();
             this.Nome = nome;
@@ -28,13 +28,17 @@ namespace csharp_oop_shop
         public string Nome { get => nome; set => nome = value; }
         public string Descrizione { get => descrizione; set => descrizione = value; }
         public float Prezzo { get => prezzo; set => prezzo = value; }
-        public string Iva { get => iva; set => iva = value; }
+        public int Iva { get => iva; set => iva = value; }
 
         public string RandomCode()
         {
             Random rnd = new Random();
-            
-            return rnd.Next(99999999).ToString(); ;
+            string codice = rnd.Next(99999999).ToString();
+            while(codice.Length != 9)
+            {
+                codice = "0"+codice; 
+            }
+            return codice;
         }
 
         public void stampa()
@@ -42,8 +46,15 @@ namespace csharp_oop_shop
             Console.WriteLine($"Codice :{this.codice}");
             Console.WriteLine($"Nome :{this.nome}");
             Console.WriteLine($"Descrizione :{this.descrizione}");
-            Console.WriteLine($"Prezzo :{this.prezzo}");
+            Console.WriteLine($"Prezzo :{this.prezzo}\u20AC");
             Console.WriteLine($"IVA :{this.iva}");
+            Console.WriteLine($"Prezzo con IVA applicata :{this.prezzoIva()}\u20AC");
+        }
+        public float prezzoIva()
+        {
+            float prezzoIva = (this.prezzo/100 * this.Iva)+this.prezzo;
+
+            return prezzoIva;
         }
     }
 }
