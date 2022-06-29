@@ -43,12 +43,12 @@ namespace csharp_oop_shop
 
         public void stampa()
         {
-            Console.WriteLine($"Codice :{this.codice}");
-            Console.WriteLine($"Nome :{this.nome}");
-            Console.WriteLine($"Descrizione :{this.descrizione}");
-            Console.WriteLine($"Prezzo :{this.prezzo}\u20AC");
-            Console.WriteLine($"IVA :{this.iva}");
-            Console.WriteLine($"Prezzo con IVA applicata :{this.prezzoIva()}\u20AC");
+            Console.WriteLine($"Codice: {this.codice}");
+            Console.WriteLine($"Nome: {this.nome}");
+            Console.WriteLine($"Descrizione: {this.descrizione}");
+            Console.WriteLine($"Prezzo: {this.prezzo}\u20AC");
+            Console.WriteLine($"IVA: {this.iva}");
+            Console.WriteLine($"Prezzo con IVA applicata: {this.prezzoIva()}\u20AC");
         }
         public float prezzoIva()
         {

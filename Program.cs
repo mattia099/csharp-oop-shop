@@ -5,6 +5,6 @@ Prodotto prodotto2 = new Prodotto("Croccantini", "Croccantini per il cane", 10.0
 
 
 prodotto1.stampa();
-
+Console.WriteLine();
 prodotto2.stampa();
 
